@@ -16,13 +16,15 @@ body {
 
 .container {
   display: flex;
-  width: 1200px;
-  gap: 0px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  width: 100%;
+  gap: 20px;
 }
 
 .results {
-  text-align: center;
   flex: 3;
+  text-align: center;
 }
 
 .results h1 {
@@ -38,18 +40,16 @@ body {
 }
 
 .grid {
-      display: flex;
-      width: 980px;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center; /* centraliza os cards */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
 .card {
-  width: 420px;
-  height: 460px;
+  width: 100%;
+  max-width: 420px;
   background-color: #fff;
-  flex-wrap: wrap;
   border-radius: 5px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
@@ -62,10 +62,9 @@ body {
 }
 
 .card img {
-  border:0;
   width: 100%;
   height: auto;
-  
+  display: block;
 }
 
 .card-body {
@@ -89,8 +88,6 @@ body {
   font-size: 12px;
   text-decoration: none;
   font-weight: bold;
- 
-  
 }
 
 .read-more:hover {
@@ -98,10 +95,9 @@ body {
 }
 
 .sidebar {
-gap: 10px;
-  padding-top: 90px;
   flex: 1;
-  
+  min-width: 250px;
+  padding-top: 90px;
 }
 
 .sidebar .categories h3 {
@@ -115,7 +111,7 @@ gap: 10px;
 
 .sidebar .categories li {
   margin-bottom: 0.7em;
-  border-bottom: 1px solid #ccc; /* linha embaixo */
+  border-bottom: 1px solid #ccc;
   padding: 10px 0;
 }
 
@@ -129,9 +125,6 @@ gap: 10px;
   text-decoration: underline;
 }
 
-
-
-
 .search-box {
   margin-top: 2em;
 }
@@ -143,17 +136,13 @@ gap: 10px;
   font-weight: bold;
 }
 
-.search-box input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.search-container {
+  position: relative;
 }
 
-
 .search-container input {
-  flex: 1;
-  padding: 8px 40px 8px 8px; /* espaço pro botão à direita */
+  width: 100%;
+  padding: 8px 40px 8px 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
@@ -161,7 +150,7 @@ gap: 10px;
 
 .search-button {
   position: absolute;
-  right: 5px;
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
   background: none;
@@ -174,4 +163,36 @@ gap: 10px;
 
 .search-button:hover {
   color: #007BFF;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding-top: 30px;
+  }
+
+  .results {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+
+  .sidebar {
+    padding-top: 20px;
+  }
 }
